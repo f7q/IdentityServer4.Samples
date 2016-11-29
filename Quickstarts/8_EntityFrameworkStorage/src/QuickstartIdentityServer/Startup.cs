@@ -21,17 +21,17 @@ namespace QuickstartIdentityServer
         {
             services.AddMvc();
 
-            var connectionString = @"server=(localdb)\mssqllocaldb;database=IdentityServer4;trusted_connection=yes";
+            var connectionString = @"User Id=postgres;Password=postgresql;Host=localhost;Port=5432;Database=mydb;";
             var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
 
             // configure identity server with in-memory users, but EF stores for clients and scopes
             services.AddDeveloperIdentityServer()
                 .AddInMemoryUsers(Config.GetUsers())
                 .AddConfigurationStore(builder =>
-                    builder.UseSqlServer(connectionString, options =>
+                    builder.UseNpgsql(connectionString, options =>
                         options.MigrationsAssembly(migrationsAssembly)))
                 .AddOperationalStore(builder =>
-                    builder.UseSqlServer(connectionString, options =>
+                    builder.UseNpgsql(connectionString, options =>
                         options.MigrationsAssembly(migrationsAssembly)));
         }
 
@@ -44,27 +44,7 @@ namespace QuickstartIdentityServer
             app.UseDeveloperExceptionPage();
 
             app.UseIdentityServer();
-
-            app.UseCookieAuthentication(new CookieAuthenticationOptions
-            {
-                AuthenticationScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme,
-
-                AutomaticAuthenticate = false,
-                AutomaticChallenge = false
-            });
-
-            app.UseGoogleAuthentication(new GoogleOptions
-            {
-                AuthenticationScheme = "Google",
-                DisplayName = "Google",
-                SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme,
-
-                ClientId = "434483408261-55tc8n0cs4ff1fe21ea8df2o443v2iuc.apps.googleusercontent.com",
-                ClientSecret = "3gcoTrEDPPJ0ukn_aYYT6PWo"
-            });
-
-            app.UseStaticFiles();
-            app.UseMvcWithDefaultRoute();
+            
         }
 
         private void InitializeDatabase(IApplicationBuilder app)

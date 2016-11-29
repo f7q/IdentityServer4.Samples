@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace QuickstartIdentityServer.Migrations.ConfigurationDb
 {
-    public partial class InitialIdentityServerMigration : Migration
+    public partial class Config : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -14,7 +14,7 @@ namespace QuickstartIdentityServer.Migrations.ConfigurationDb
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     AbsoluteRefreshTokenLifetime = table.Column<int>(nullable: false),
                     AccessTokenLifetime = table.Column<int>(nullable: false),
                     AccessTokenType = table.Column<int>(nullable: false),
@@ -54,7 +54,7 @@ namespace QuickstartIdentityServer.Migrations.ConfigurationDb
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     AllowUnrestrictedIntrospection = table.Column<bool>(nullable: false),
                     ClaimsRule = table.Column<string>(maxLength: 200, nullable: true),
                     Description = table.Column<string>(maxLength: 1000, nullable: true),
@@ -77,7 +77,7 @@ namespace QuickstartIdentityServer.Migrations.ConfigurationDb
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     ClientId = table.Column<int>(nullable: false),
                     Type = table.Column<string>(maxLength: 250, nullable: false),
                     Value = table.Column<string>(maxLength: 250, nullable: false)
@@ -98,7 +98,7 @@ namespace QuickstartIdentityServer.Migrations.ConfigurationDb
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     ClientId = table.Column<int>(nullable: false),
                     Origin = table.Column<string>(maxLength: 150, nullable: false)
                 },
@@ -118,7 +118,7 @@ namespace QuickstartIdentityServer.Migrations.ConfigurationDb
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     ClientId = table.Column<int>(nullable: false),
                     GrantType = table.Column<string>(maxLength: 250, nullable: false)
                 },
@@ -138,7 +138,7 @@ namespace QuickstartIdentityServer.Migrations.ConfigurationDb
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     ClientId = table.Column<int>(nullable: false),
                     Provider = table.Column<string>(maxLength: 200, nullable: false)
                 },
@@ -158,7 +158,7 @@ namespace QuickstartIdentityServer.Migrations.ConfigurationDb
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     ClientId = table.Column<int>(nullable: false),
                     PostLogoutRedirectUri = table.Column<string>(maxLength: 2000, nullable: false)
                 },
@@ -178,7 +178,7 @@ namespace QuickstartIdentityServer.Migrations.ConfigurationDb
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     ClientId = table.Column<int>(nullable: false),
                     RedirectUri = table.Column<string>(maxLength: 2000, nullable: false)
                 },
@@ -198,7 +198,7 @@ namespace QuickstartIdentityServer.Migrations.ConfigurationDb
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     ClientId = table.Column<int>(nullable: false),
                     Scope = table.Column<string>(maxLength: 200, nullable: false)
                 },
@@ -218,7 +218,7 @@ namespace QuickstartIdentityServer.Migrations.ConfigurationDb
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     ClientId = table.Column<int>(nullable: false),
                     Description = table.Column<string>(maxLength: 2000, nullable: true),
                     Expiration = table.Column<DateTime>(nullable: true),
@@ -241,7 +241,7 @@ namespace QuickstartIdentityServer.Migrations.ConfigurationDb
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     AlwaysIncludeInIdToken = table.Column<bool>(nullable: false),
                     Description = table.Column<string>(maxLength: 1000, nullable: true),
                     Name = table.Column<string>(maxLength: 200, nullable: false),
@@ -263,7 +263,7 @@ namespace QuickstartIdentityServer.Migrations.ConfigurationDb
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     Description = table.Column<string>(maxLength: 1000, nullable: true),
                     Expiration = table.Column<DateTime>(nullable: true),
                     ScopeId = table.Column<int>(nullable: false),

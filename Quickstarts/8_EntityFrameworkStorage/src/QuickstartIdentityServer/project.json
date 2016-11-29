@@ -14,9 +14,13 @@
 
     "IdentityServer4": "1.0.0-rc2",
     "IdentityServer4.EntityFramework": "1.0.0-rc2",
-
-    "Microsoft.EntityFrameworkCore.SqlServer": "1.0.*",
-    "Microsoft.EntityFrameworkCore.SqlServer.Design": {
+    "Npgsql.EntityFrameworkCore.PostgreSQL": "1.1.0",
+    "Npgsql.EntityFrameworkCore.PostgreSQL.Design": {
+      "version": "1.0.*",
+      "type": "build"
+    },
+    "Microsoft.EntityFrameworkCore.Sqlite": "1.0.*",
+    "Microsoft.EntityFrameworkCore.Sqlite.Design": {
       "version": "1.0.*",
       "type": "build"
     },
@@ -53,7 +57,6 @@
 
   "publishOptions": {
     "include": [
-      "wwwroot",
       "web.config"
     ]
   },

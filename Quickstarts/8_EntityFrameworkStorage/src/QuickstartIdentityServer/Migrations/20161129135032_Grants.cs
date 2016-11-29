@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace QuickstartIdentityServer.Migrations
 {
-    public partial class InitialIdentityServerMigration : Migration
+    public partial class Grants : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

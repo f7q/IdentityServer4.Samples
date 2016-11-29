@@ -8,14 +8,14 @@ using IdentityServer4.EntityFramework.DbContexts;
 namespace QuickstartIdentityServer.Migrations.ConfigurationDb
 {
     [DbContext(typeof(ConfigurationDbContext))]
-    [Migration("20161007164359_InitialIdentityServerMigration")]
-    partial class InitialIdentityServerMigration
+    [Migration("20161129135052_Config")]
+    partial class Config
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
-                .HasAnnotation("ProductVersion", "1.0.1")
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn)
+                .HasAnnotation("ProductVersion", "1.1.0-rtm-22752");
 
             modelBuilder.Entity("IdentityServer4.EntityFramework.Entities.Client", b =>
                 {
